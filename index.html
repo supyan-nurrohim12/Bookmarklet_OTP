@@ -14,7 +14,7 @@
 	</div>
     <hr>
     <h3 style="margin-bottom: 5px">👉 Generator Bookmarklet</h3>
-	<p style="margin-top:0">Bookmarklet ini berfungsi untuk menghasilkan kode OTP sesuai secret yang Anda masukkan. Kode OTP akan langsung terisi sesuai penggunaan OTP yang Anda buat.</p>
+	<p style="margin-top:0">Bookmarklet ini berfungsi untuk menghasilkan kode OTP sesuai kode rahasia yang Anda masukkan. Kode OTP akan langsung terisi sesuai penggunaan OTP yang Anda buat.</p>
     <input type="text" id="bookmarkletCode" placeholder="Masukkan Kode Secret">
 	<input type="text" id="bookmarkletNama" placeholder="Masukkan Nama Bookmarklet">
 	<div class="radio-group">
@@ -28,7 +28,7 @@
     <p style="margin: 24px 0;font-family: monospace, sans-serif">Bookmarklet: <a id="bookmarkletLink" href="#" target="_blank"></a></p>
 	<hr>
     <h3 style="margin-bottom: 5px">👉 Google Authenticator QR Decoder</h3>
-    <p style="margin-top:0">Unggah gambar kode QR 2FA untuk mengekstrak akun dan secret-nya. Atau Anda bisa langsung menggunakan Generator Bookmarklet diatas jika sudah punya kode secret.</p>
+    <p style="margin-top:0">Unggah gambar kode QR 2FA untuk mengekstrak akun dan secret-nya. Atau Anda bisa langsung menggunakan Generator Bookmarklet diatas jika sudah punya kode rahasia.</p>
     <input type="file" id="fileInput" accept="image/*">
     <pre id="output">Silakan Upload QR Google Authenticator</pre>
 		<div class="footer">
@@ -187,6 +187,7 @@ function generateBookmarklet() {
 </script>
 </body>
 </html>
+
 
 
 
