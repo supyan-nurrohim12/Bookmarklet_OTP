@@ -151,27 +151,10 @@ function base32Encode(bytes) {
     }
     return output;
 }
-
-function generateBookmarklet() {
-    const code = document.getElementById("bookmarkletCode").value.trim();
-	const namacode = document.getElementById("bookmarkletNama").value.trim();
-	const selected2fa = document.querySelector('input[name="bmOption"]:checked').value;
-	let jsCode = `var secretKey="${code}";var jadiKey="";function base32Decode(e){for(var t=e.toUpperCase().replace(/=+$/,"").replace(/\s+/g,""),r=0,n=0,a=[],o=0;o<t.length;o++){var c="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".indexOf(t[o]);if(-1===c)throw new Error("Invalid Base32 character: "+t[o]);n=n<<5|c,(r+=5)>=8&&(a.push(n>>>r-8&255),r-=8)}return new Uint8Array(a)}function intToBuffer(e){var t=new ArrayBuffer(8),r=new DataView(t),n=Math.floor(e/Math.pow(2,32)),a=e>>>0;return r.setUint32(0,n),r.setUint32(4,a),new Uint8Array(t)}function generateTOTP(e,t,r,n){t=t||6,r=r||30,n=n||"SHA-1";var a=base32Decode(e),o=Math.floor(Date.now()/1e3),c=intToBuffer(Math.floor(o/r));return crypto.subtle.importKey("raw",a,{name:"HMAC",hash:{name:n}},!1,["sign"]).then(function(e){return crypto.subtle.sign("HMAC",e,c)}).then(function(e){var r=new Uint8Array(e),n=15&r[r.length-1];return(((127&r[n])<<24|(255&r[n+1])<<16|(255&r[n+2])<<8|255&r[n+3])%Math.pow(10,t)).toString().padStart(t,"0")})}generateTOTP(secretKey).then(function(e){jadiKey=e;var jotp="${selected2fa}";if("infogtk"==jotp){const e=document.querySelectorAll("#otpForm .otp-input");jadiKey.split("").forEach((t,o)=>{e[o]&&(e[o].value=t)})}else document.getElementById("${selected2fa}").value=e;}).catch(function(e){alert("Error: id tidak ditemukan untuk OTP " + jadiKey)});`;
-    if (!code) {
-		alert("Masukkan kode secret terlebih dahulu.");
-        return;
-    } else if (!namacode) {
-		alert("Masukkan nama bookmark terlebih dahulu.");
-		return;
-	}
-    const bookmarklet = "javascript:(function(){" + encodeURIComponent(jsCode) + "})();";
-    const link = document.getElementById("bookmarkletLink");
-    link.href = bookmarklet;
-    link.textContent = document.getElementById("bookmarkletNama").value;
-}
 </script>
 </body>
 </html>
+
 
 
 
