@@ -1,1 +1,1 @@
-# Bookmarklet_OTP
+# QR_Decoder
